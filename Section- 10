@@ -1,0 +1,136 @@
+import { Button, ColorPropType, StyleSheet, Text, View, openURL, ListViewComponent, ScrollView, RefreshControl, FlatList, SectionList } from 'react-native';
+import React, { useState } from 'react';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
+
+
+const App02 = () => {
+  // const [Items, setItmes] = useState([
+  //   {  name: 'Item 1' },
+  //   {  name: 'Item 3' },
+  //   {  name: 'Item 5' },
+  //   {  name: 'Item 6' },
+  //   {  name: 'Item 9' },
+  //   {  name: 'Item 4' },
+  //   {  name: 'Item 8' },
+  //   {  name: 'Item 9' },
+  //   {  name: 'Item 7' },
+  //   {  name: 'Item 10' },
+  //   {  name: 'Item 42' },
+  //   {  name: 'Item 89' },
+  //   {  name: 'Item 69' },
+  //   {  name: 'Item 45' },
+  //   {  name: 'Item 47' },
+  //   {  name: 'Item 48' },
+  //   {  name: 'Item 49' },
+  //   {  name: 'Item 50' },
+  // ])
+  
+  
+  
+
+  const[DATA, setDATA] = useState([
+      { title: `Title 1`,
+      data: [`Item 1-1`, `Item 1-2`, `Item 1-3`] },
+      
+
+      // { title: 'Title 2',
+      // data: ['Item 2-1', 'Item 2-2', 'Item 2-3' ] },
+
+      // { title: 'Title 3',
+      // data: ['Item 3-1', 'Item 3-2', 'Item 3-3' ] },
+
+      // { title: 'Title 4',
+      // data: ['Item 4-1', 'Item 4-2', 'Item 4-3' ] },
+
+      // { title: 'Title 5',
+      // data: ['Item 5-1', 'Item 5-2', 'Item 5-3' ] },
+  ]
+);
+
+  const [Refreshing, setRefreshing] = useState(false);
+  // var kN = 19; 
+  //  var kV = 59;
+
+  
+  var m = DATA.length + 1;
+  var n = 1;
+  // var n = sections.length + 1; 
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    
+    var newArray = { title: `Title ${m}`,
+    data: [`Item ${m}-${n}`, `Item ${m}-${++n}`, `Item ${m}-${++n}`] };
+    setDATA([...DATA, newArray]);
+    setRefreshing(false); 
+  }
+  return (
+
+    <SectionList
+   
+    // numColumns={3}
+    keyExtractor={(item, index) => index.toString()} 
+    // horizontal
+    // inverted
+   sections = {DATA}
+   renderItem= {({ item }) => (
+     <View style= {styles.item}>
+     <Text  style = {styles.Heading}> {item} </Text>
+    </View>  
+   )} 
+   renderSectionHeader = {({section}) => (
+    <View style= {styles.Bk}>
+    <Text  style = {styles.Heading}> {section.title} </Text>
+   </View>  
+
+   )}
+
+   refreshControl= { <RefreshControl refreshing = {Refreshing} onRefresh={onRefresh}
+    colors= {['blue']}/> }
+    />
+    
+  );
+};
+
+
+export default App02;
+
+const styles = StyleSheet.create({
+  Bk: {
+    // backgroundColor: 'orange',
+    flexDirection: 'column',
+    flex: 1,
+    // height: '100%',
+    width: '100%',    
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  item: {
+     flexDirection: 'column',
+    flex: 1,
+    // height: '100%',
+    backgroundColor: 'cyan',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    margin: 6,
+  },
+
+
+
+  Heading: {
+    color: 'black',
+    fontSize: 30,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    // justifyContent: 'center',
+    // textAlign: 'center',
+
+    textTransform: 'capitalize',
+    // textDecorationColor: 'blue', 
+    // margin: 7,
+  },
+
+
+});

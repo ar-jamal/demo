@@ -1,0 +1,169 @@
+import { Button, ColorPropType, StyleSheet, Text, View, openURL, ListViewComponent, } from 'react-native';
+import React, { useState } from 'react';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+const App02 = () => {
+  
+  const [name, setName] = useState('reactNative');
+
+  const [session, setsession] = useState({number: 1, title: 'Intro'});
+  
+  const [current, setcurrent] = useState(true);
+
+  const [counter, setCounter] = useState(0);
+
+  const onClickHandler = () => {
+    setName('programming with reacNative')
+    setsession({number: 3, title: 'style'})
+    setcurrent(false)
+    setCounter(counter + 1)
+    }
+   
+  
+  return (
+    <View style={styles.Bk}>
+
+
+    <View style={styles.body}>
+       <Text style={styles.heading}> {name}
+    </Text>
+    
+       <Text style={styles.Text}>this is session {session.title} and it is page {session.number}.
+    </Text>
+   
+      <Text style={styles.Text}>Coding karna hai to bas karna hai 
+      </Text>
+
+      <Text style={styles.Text}>{current ? 'current' : 'next Session'} 
+      </Text>
+      
+      {/* <Button title='Update State' onPress={onClickHandler}></Button> */}
+      <Text style={styles.text}>{counter * 5}</Text>
+      <View style={styles.Button}>
+        <Button title='Add'  style={styles.fixToText} onPress={onClickHandler}></Button>
+        </View>
+      <Text style={styles.text}>You clicked {counter} times</Text>
+      </View>
+
+<View style= {styles.view01}>
+<Text style={styles.heading}> f </Text>
+    </View>
+    <View style= {styles.view02}>
+<Text style={styles.heading}> w </Text>
+    </View>
+    <View style= {styles.view03}>
+<Text style={styles.heading}> p </Text>
+    </View>
+    <View style= {styles.view04}>
+<Text style={styles.heading}> T </Text>
+    </View>
+
+    </View>
+  );
+};
+
+export default App02;
+
+const styles = StyleSheet.create({
+  Bk: {
+    flex: 1,
+    // width: '100%',
+    // height: '100%'
+    // flexDirection: 'column-reverse',
+  },
+
+  body: {
+    // flex: 1,
+    height: '50%',
+    width: '80%',
+    backgroundColor: 'green',
+    alignSelf: 'center',
+    // position: 'relative',
+    justifyContent: 'space-between',
+    borderWidth: 10,
+    // borderRadius: 8,
+    borderTopLeftRadius: 70,
+    borderBottomRightRadius: 70,
+    borderColor: 'blue',
+    flexDirection: 'column-reverse',
+    // margin: 10,
+  },
+
+ view01: {
+    height: 50,
+    width: '10%',
+    backgroundColor: 'orange',
+    borderTopLeftRadius: 100,
+    // borderTopRightRadius: 10,
+    // borderBottomLeftRadius: 10 ,
+    borderBottomRightRadius: 100,  
+ },
+ view02: {
+  height: 50,
+  width: '10%',
+  backgroundColor: 'Orange',
+  borderTopLeftRadius: 10,
+  borderTopRightRadius: 100,
+  borderBottomLeftRadius: 100,
+  borderBottomRightRadius: 10,  
+},
+view03: {
+  height: 50,
+  width: '10%',
+  backgroundColor: 'Orange',
+  borderTopLeftRadius: 10,
+  borderTopRightRadius: 10,
+  borderBottomLeftRadius: 10 ,
+  borderBottomRightRadius: 10,  
+},
+view04: {
+  height: 50,
+  width: '10%',
+  backgroundColor: 'Orange',
+  borderTopLeftRadius: 10,
+  borderTopRightRadius: 10,
+  borderBottomLeftRadius: 10 ,
+  borderBottomRightRadius: 10,  
+},
+
+  Text: {
+    color: "white",
+    fontSize: 18,
+    // justifyContent: 'center',
+    textAlign: 'center',
+    margin: 0,
+  },
+  text: {
+    color: "yellow",
+    fontSize: 15,
+    textAlign: 'center',
+    // justifyContent: 'center',
+    margin: 5},
+
+    fixToText: {
+   flexDirection: 'row',
+   justifyContent: 'space-between',
+   fontWeight: 'bold',
+    },
+
+    heading: {
+     color: "blue",
+    fontSize: 30,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    textAlign: 'center',
+    
+    textTransform: 'capitalize',
+    // textDecorationColor: 'blue',
+    margin: 7,
+    },
+
+Button: {
+  // height: 60,
+  width: 180,
+  backgroundColor: 'red',
+  alignSelf: 'center',
+  borderWidth: 4,
+  borderColor: 'yellow'
+  
+},
+});
