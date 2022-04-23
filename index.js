@@ -10,4 +10,5 @@ import App from './src/NavigationExercise';
 import {name as appName} from './app.json';
 
 
+
 AppRegistry.registerComponent(appName, () => App);
