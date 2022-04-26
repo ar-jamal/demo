@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 30,
     // alignItems: 'center'
     justifyContent: 'center',
-    // margin: 5
+    margin: 20
   },
 
   text: {

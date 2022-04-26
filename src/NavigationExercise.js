@@ -1,5 +1,10 @@
 import 'react-native-gesture-handler';
-import JButton from './Button';
+import React from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
+
+import ScreenA from '../screens/screenA';
+import ScreenB from '../screens/screenB';
+import ScreenC from '../screens/screenC';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -8,117 +13,14 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import AntIcon from 'react-native-vector-icons/AntDesign';
-import React from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
 import IconButton from 'react-native-vector-icons/dist/lib/icon-button';
-import { CustomIcon } from './CustomIcon';
+// import {CustomIcon} from './CustomIcon';
 
 // const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator ();
 // const Tab = createMaterialBottomTabNavigator();
 // const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
-
-function ScreenA({navigation, route}) {
-  // var  onPressHandlerHome= ({lastPage}) => {
-  //   navigation.navigate('Home')
-  //   lastPage = navigation.navigate('Screen_C')
-
-  // var onPressHandlerHome = () => {
-  //   navigation.navigate('Home');
-  // };
-
-  var onPressHandlerLast = () => {
-    navigation.navigate('Screen_C');
-    // navigation.toggleDrawer();
-  };
-  const onPressHandler = () => {
-    navigation.navigate('Screen_B')
-    // navigation.navigate('Screen_B', {
-    //   ItemName: 'Item from Screen A',
-    //   ItemId: 9,
-    // });
-    //  navigation.closeDrawer();
-    //  navigation.toggleDrawer();
-  };
-  return (
-    <View style={styles.body}>
-      <Text style={styles.text}>This is the first page</Text>
-      <View style={styles.container}>
-        {/* <Pressable   
-          onPress= {onPressHandler}
-          style= {({pressed}) => [
-            { backgroundColor:  pressed? 'blue' :  'yellow' },styles.PressButton,
-          ]}
-        >
-           <Text style= {styles.text}>
-             Go to the Next Page
-           </Text>
-        </Pressable> */}
-
-        <JButton
-          onPressFunction={onPressHandlerLast}
-          title={'Go to the Last page'}
-          // title={'Open Drawer'}
-        />
-        <CustomIcon name='home' size={24} />
-        <JButton
-          onPressFunction={onPressHandler}
-          // title = { <AntIcon name= { 'DoubleRightOutlined '} size= {12} color= {'white'} />} */}
-          title={'next'}
-          // title={'Toggle Drawer'}
-          // iconName = {'bulb1'}
-          // <AntIcon name={'bulb1'} size={12} color={'black'} />
-        />
-      </View>
-      <Text style={styles.text}> {route.params?.Message} </Text>
-    </View>
-  );
-}
-
-function ScreenB({navigation, route}) {
-  const {ItemName, ItemId} = route.params || {};
-  const onPressHandler = () => {
-    // navigation.navigate('Screen_C');
-    navigation.navigate('Home', {Message: 'Message sent from Screen B'});
-    // navigation.goBack();
-    // navigation.setParams({ItemId: 13})
-  };
-  return (
-    <View style={styles.body}>
-      <Text style={styles.text}>This is the 2nd page</Text>
-      <Pressable
-        onPress={onPressHandler}
-        style={({pressed}) => [
-          {backgroundColor: pressed ? 'blue' : 'yellow'},
-          styles.PressButton,
-        ]}>
-        <Text style={styles.text}>Go to the Next Page</Text>
-      </Pressable>
-      <Text style={styles.text}> {ItemName} </Text>
-      <Text style={styles.text}> ID: {ItemId} </Text>
-    </View>
-  );
-}
-
-function ScreenC({navigation}) {
-  var onPressHandler = () => {
-    navigation.navigate('Home');
-  };
-  return (
-    <View style={styles.body}>
-      <Text style={styles.text}>This is the 3rd & last page</Text>
-      <Pressable
-        onPress={onPressHandler}
-        style={({pressed}) => [
-          {backgroundColor: pressed ? 'blue' : 'yellow'},
-          styles.PressButton,
-        ]}>
-        <Text style={styles.text}>Go to the Home Page</Text>
-      </Pressable>
-    </View>
-  );
-}
 
 export default function App() {
   return (
