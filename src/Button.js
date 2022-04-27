@@ -14,7 +14,7 @@ const JButton = props => {
       style={({pressed}) => [
         {backgroundColor: pressed ? 'blue' : '#00ff00'},
         {borderRadius: pressed ? 30 : null},
-        styles.submitButton,
+        styles.submitBut,
       ]}>
       <Text style={styles.text}>{props.title}</Text> 
 
@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
   submitBut: {
     // flex: .4,
     // backgroundColor: 'orange',
-    height: '100%',
-    aspectRatio: 2,
+    height: 40,
+    aspectRatio: 4,
     // borderRadius: 30,
-    borderTopRightRadius: 30,
-    borderBottomRightRadius: 30,
+    // borderTopRightRadius: 30,
+    // borderBottomRightRadius: 30,
     // alignItems: 'center'
     justifyContent: 'center',
-    margin: 20
+    margin: 10
   },
 
   text: {

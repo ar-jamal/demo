@@ -2,9 +2,9 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
-import ScreenA from '../screens/screenA';
-import ScreenB from '../screens/screenB';
-import ScreenC from '../screens/screenC';
+import ScreenA from '../screens/Home';
+import LoginScreen from '../screens/Login';
+// import ScreenC from '../screens/screenC';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Input"
+        initialRouteName="Login"
       >
         <Stack.Screen
           name="Home"
@@ -24,11 +24,14 @@ export default function App() {
           //  options= {{ header: () => null}}
         />
         <Stack.Screen
-          name="Input"
-          component={InputScreen}
+          name="Login"
+          component={LoginScreen}
+          options= {{
+            headerShown: false,
+            }}
           // initialParams={{ItemName: 'Item from Drawer', ItemId: 9}}
         />
-        <Stack.Screen name="Screen_C" component={ScreenC} />
+        {/* <Stack.Screen name="Screen_C" component={ScreenC} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

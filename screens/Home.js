@@ -10,7 +10,7 @@ export default function ScreenA({navigation, route}) {
   
   const onPressHandler = () => {
 
-    navigation.navigate('Screen_B');
+    navigation.navigate('LoginScreen');
   };
   return (
     <View style={styles.body}>
@@ -19,7 +19,7 @@ export default function ScreenA({navigation, route}) {
        
         <JButton
           onPressFunction={onPressHandler}
-          title={'next'}
+          title={'Go to the login Page'}
         />
     
       <Text style={styles.text}> {route.params?.Message} </Text>
