@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     // flex: .4,
     // backgroundColor: 'orange',
     height: 40,
-    aspectRatio: 4,
+    aspectRatio: 4.2,
     // borderRadius: 30,
     // borderTopRightRadius: 30,
     // borderBottomRightRadius: 30,
